@@ -3,7 +3,8 @@ import React from 'react';
 export const getPokemonList = async () => {
   const response = await fetch ('https://pokeapi.co/api/v2/pokemon/');
   const result = await response.json();
-console.log(result);
+  const singlePokemon = result.results;
+console.log(singlePokemon);
 }
 
 
