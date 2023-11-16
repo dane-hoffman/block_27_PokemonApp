@@ -1,8 +1,13 @@
-# React + Vite
+Block 27: Workshop - "Pokemon App"
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Create a React app that retrieves and displays a list of pokemon
+    • Use the Pokemon API to fetch a list of Pokemon
+    • Use pokemonList setPokemonList (instead of mapping)
 
-Currently, two official plugins are available:
+When you click on a pokemon in the list, it should go to a details page displaying more information about it
+    • Create 'onClick' event handler
+        • Display detailed information on selected Pokemon
+        • Create a new 'back' <button>
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+
+Add a form that allows the user to create their own pokemon

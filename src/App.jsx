@@ -1,14 +1,11 @@
 import React from 'react'
 import { useState } from 'react'
+import PokemonList from './components/PokemonList'
 
 function App() {
 
-
   return (
-    <>
-    <h2>Hello World</h2>
-
-    </>
+    <PokemonList />
   )
 }
 
