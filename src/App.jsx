@@ -1,14 +1,10 @@
-import React from 'react'
-import { useState } from 'react'
+import React, { useEffect, useState } from 'react';
 import PokemonList, {getPokemonList} from './components/PokemonList'
 
-function App() {
 
-  return (
-    <div>
-    <PokemonList />
-    </div>
-  )
+
+function App() {
+  return <PokemonList />;
 }
 
-export default App
+export default App;

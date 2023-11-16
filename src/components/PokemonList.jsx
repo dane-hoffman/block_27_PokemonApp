@@ -14,6 +14,7 @@ export const getPokemonList = async () => {
 
 export default function PokemonList() {
   const [pokemonData, setPokemonData] = useState([]);
+  const [selectedPokemon, setSelectedPokemon] = useState(null);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -24,14 +25,27 @@ export default function PokemonList() {
     fetchData();
   }, []);
 
+  const handleClick = (pokemon) => {
+    setSelectedPokemon(pokemon);
+  };
+
   return (
     <>
       <h1>My Pokemon App</h1>
-      <ul>
-        {pokemonData.map((pokemon, index) => (
-          <li key={index}>{pokemon.name}</li>
-        ))}
-      </ul>
+      {selectedPokemon ? (
+        <div>
+          <h2>{selectedPokemon.name} Details</h2>
+          {/* Display other details of selectedPokemon */}
+        </div>
+      ) : (
+        <ul>
+          {pokemonData.map((pokemon, index) => (
+            <li key={index} onClick={() => handleClick(pokemon)}>
+              {pokemon.name}
+            </li>
+          ))}
+        </ul>
+      )}
     </>
   );
 }
