@@ -34,6 +34,7 @@ export default function PokemonList() {
       <h1>My Pokemon App</h1>
       {selectedPokemon ? (
         <div>
+          <button onClick={() => setSelectedPokemon(null)}>Back</button>
           <h2>{selectedPokemon.name} Details</h2>
           {/* Display other details of selectedPokemon */}
         </div>
