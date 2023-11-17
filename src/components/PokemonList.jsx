@@ -25,8 +25,11 @@ export default function PokemonList() {
     fetchData();
   }, []);
 
-  const handleClick = (pokemon) => {
+  const handleClick = async (pokemon) => {
     setSelectedPokemon(pokemon);
+    const response = await fetch(pokemon.url);
+    const selectedPokemonData = await response.json();
+    console.log('Selected Pokemon Data:', selectedPokemonData);
   };
 
   return (
@@ -35,7 +38,7 @@ export default function PokemonList() {
       {selectedPokemon ? (
         <div>
           <button onClick={() => setSelectedPokemon(null)}>Back</button>
-          <h2>{selectedPokemon.name} Details</h2>
+          <h2>{selectedPokemon.name}</h2>
           {/* Display other details of selectedPokemon */}
         </div>
       ) : (
