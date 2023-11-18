@@ -22,7 +22,8 @@ function App() {
       ) : (
         <SinglePokemon
           pokemon={selectedPokemon}
-          onBack={handleBackToPokemonList}
+          onSelect={handleBackToPokemonList}
+          showBackButton={true}
         />
       )}
     </div>

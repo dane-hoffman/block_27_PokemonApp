@@ -36,6 +36,8 @@ const PokemonList = ({ onSelect }) => {
       ))}
     </ul>
   );
+
+  
 };
 
 export default PokemonList;
