@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import SinglePokemon from './SinglePokemon';
 
+// Function to fetch the Pokémon list data
 export const fetchPokemonList = async () => {
   try {
     const response = await fetch('https://pokeapi.co/api/v2/pokemon/');
@@ -12,9 +13,12 @@ export const fetchPokemonList = async () => {
   }
 };
 
+// Component to display the list of Pokémon
 const PokemonList = ({ onSelect }) => {
+  // State to hold the fetched Pokémon data
   const [pokemonData, setPokemonData] = useState([]);
 
+  // Fetch Pokémon data when the component mounts
   useEffect(() => {
     const getPokemonData = async () => {
       const data = await fetchPokemonList();
@@ -24,6 +28,7 @@ const PokemonList = ({ onSelect }) => {
     getPokemonData();
   }, []);
 
+  // Render the list of Pokémon
   return (
     <ul>
       {pokemonData.map((pokemon, index) => (
@@ -38,4 +43,3 @@ const PokemonList = ({ onSelect }) => {
 };
 
 export default PokemonList;
-
