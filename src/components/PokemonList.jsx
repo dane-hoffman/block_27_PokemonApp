@@ -12,6 +12,10 @@ export const getPokemonList = async () => {
   }
 };
 
+const capitalizeFirstLetter = (pokemon) => {
+  return pokemon.charAt(0).toUpperCase() + pokemon.slice(1);
+};
+
 export default function PokemonList() {
   const [pokemonData, setPokemonData] = useState([]);
   const [selectedPokemon, setSelectedPokemon] = useState(null);
@@ -26,10 +30,10 @@ export default function PokemonList() {
   }, []);
 
   const handleClick = async (pokemon) => {
-    setSelectedPokemon(pokemon);
     const response = await fetch(pokemon.url);
     const selectedPokemonData = await response.json();
     console.log('Selected Pokemon Data:', selectedPokemonData);
+    setSelectedPokemon(selectedPokemonData);
   };
 
   return (
@@ -39,13 +43,21 @@ export default function PokemonList() {
         <div>
           <button onClick={() => setSelectedPokemon(null)}>Back</button>
           <h2>{selectedPokemon.name}</h2>
+          <h4>Pokemon Type:</h4>
+          {selectedPokemon.types && selectedPokemon.types.length > 0 ? (
+            selectedPokemon.types.map((typeData, index) => (
+              <p key={index}>{typeData.type.name}</p>
+            ))
+          ) : (
+            <p>No types found for this Pokemon</p>
+          )}
           {/* Display other details of selectedPokemon */}
         </div>
       ) : (
         <ul>
           {pokemonData.map((pokemon, index) => (
             <li key={index} onClick={() => handleClick(pokemon)}>
-              {pokemon.name}
+              {capitalizeFirstLetter(pokemon.name)}
             </li>
           ))}
         </ul>
