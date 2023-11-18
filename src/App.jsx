@@ -6,18 +6,15 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 function App() {
   const [selectedPokemon, setSelectedPokemon] = useState(null);
 
-  const handlePokemonSelect = (pokemon) => {
-    setSelectedPokemon(pokemon);
-  };
+  const handlePokemonSelect = (pokemon) => setSelectedPokemon(pokemon);
+  const handleBackToPokemonList = () => setSelectedPokemon(null);
 
-  const handleBackToPokemonList = () => {
-    setSelectedPokemon(null);
-  };
+  const isPokemonSelected = selectedPokemon !== null;
 
   return (
     <div>
       <h1>My Pokemon App</h1>
-      {!selectedPokemon ? (
+      {!isPokemonSelected ? (
         <PokemonList onSelect={handlePokemonSelect} />
       ) : (
         <SinglePokemon
@@ -31,3 +28,4 @@ function App() {
 }
 
 export default App;
+

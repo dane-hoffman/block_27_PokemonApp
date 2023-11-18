@@ -1,11 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import SinglePokemon from './SinglePokemon';
 
-export const getPokemonList = async () => {
+export const fetchPokemonList = async () => {
   try {
     const response = await fetch('https://pokeapi.co/api/v2/pokemon/');
-    const result = await response.json();
-    const pokemonList = result.results;
+    const { results: pokemonList } = await response.json();
     return pokemonList;
   } catch (error) {
     console.error('Error fetching Pokemon list:', error);
@@ -17,12 +16,12 @@ const PokemonList = ({ onSelect }) => {
   const [pokemonData, setPokemonData] = useState([]);
 
   useEffect(() => {
-    const fetchData = async () => {
-      const data = await getPokemonList();
+    const getPokemonData = async () => {
+      const data = await fetchPokemonList();
       setPokemonData(data);
     };
 
-    fetchData();
+    getPokemonData();
   }, []);
 
   return (
@@ -36,8 +35,7 @@ const PokemonList = ({ onSelect }) => {
       ))}
     </ul>
   );
-
-  
 };
 
 export default PokemonList;
+

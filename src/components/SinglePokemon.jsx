@@ -5,9 +5,7 @@ export const capitalizeFirstLetter = (pokemon) => {
 };
 
 const SinglePokemon = ({ pokemon, onSelect, showBackButton }) => {
-  const handleClick = () => {
-    onSelect(pokemon);
-  };
+  const handleClick = () => onSelect(pokemon);
 
   return (
     <div>
@@ -22,3 +20,4 @@ const SinglePokemon = ({ pokemon, onSelect, showBackButton }) => {
 };
 
 export default SinglePokemon;
+
